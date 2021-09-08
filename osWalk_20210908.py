@@ -58,7 +58,7 @@ def findAll( nPath,txtFile ):
 #--- 傳回一個 list allFiles 符合的檔案名稱 
 def findSome(nPath, fTypes, txtFile):
     allFiles = []
-    for dirs, subdirs, files in os.walk( path ):
+    for dirs, subdirs, files in os.walk( nPath ):
         for extension in ( tuple(fTypes) ):
             for filename in fnmatch.filter(files, extension):
                 filepath = os.path.join(dirs, filename)		
