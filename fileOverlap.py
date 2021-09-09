@@ -1,5 +1,4 @@
-''' fileOverlap.py 檔案重覆之處理
-    Author: neoCaffe  '''
+''' fileOverlap.py 檔案重覆之處理 Author: neoCaffe 2021/9/9 '''
 import os, hashlib
 
 #--- 找出重覆之檔案 
@@ -10,8 +9,12 @@ def findOverlap( nPath, fTypes ):
     overlapA = []      # 重覆之檔 位置A
     overlapB = []      # 重覆之檔 位置B
     f_tree = os.walk(nPath)
+    # os.walk 傳回的是generator
+    print(f'return a generator: {type(f_tree)}')
     
     for dirname,subdir,files in f_tree:
+        # 一層一層向下
+        print(f'file count of this folder: {len(files)}')
         imgFiles = []    # 這一層的 image files
         # 取得 符合之檔案，存入 imgFiles 串列中
         for file in files:  
