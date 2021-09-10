@@ -44,12 +44,12 @@ def findDoc( nPath, fileTypes, keyword):
                             result.append(tmp)  # 存入 result list
                             # dict 新增一筆 key:找到的位置 / value:該段落文字
                             contents[tmp] = p.Range.Text
-                            
+                    doc.Close()   # 關檔步驟，不可少        
                 except:
                     err = f'檔案: {file} 讀取錯誤'
                     result.append(err)
                     
-                doc.Close()   # 關檔步驟，不可少
+       
         
     return allDoc, result, contents  # 傳回
 #---------------------------------------
